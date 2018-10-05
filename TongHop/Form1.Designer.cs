@@ -44,7 +44,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(286, 771);
+            this.panel1.Size = new System.Drawing.Size(286, 700);
             this.panel1.TabIndex = 0;
             // 
             // tvSelectProject
@@ -59,8 +59,9 @@
             treeNode2.Text = "Các đoạn thẳng";
             this.tvSelectProject.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2});
-            this.tvSelectProject.Size = new System.Drawing.Size(286, 771);
+            this.tvSelectProject.Size = new System.Drawing.Size(286, 700);
             this.tvSelectProject.TabIndex = 0;
+            this.tvSelectProject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvSelectProject_NodeMouseClick);
             // 
             // pnlWindows
             // 
@@ -68,14 +69,14 @@
             this.pnlWindows.Location = new System.Drawing.Point(286, 0);
             this.pnlWindows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlWindows.Name = "pnlWindows";
-            this.pnlWindows.Size = new System.Drawing.Size(1046, 771);
+            this.pnlWindows.Size = new System.Drawing.Size(900, 700);
             this.pnlWindows.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 771);
+            this.ClientSize = new System.Drawing.Size(1186, 700);
             this.Controls.Add(this.pnlWindows);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
