@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Vẽ bằng DDA");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Các đoạn thẳng", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Vẽ bằng DDA");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Bresenham");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Các đoạn thẳng", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
             this.panel1 = new System.Windows.Forms.Panel();
             this.tvSelectProject = new System.Windows.Forms.TreeView();
             this.pnlWindows = new System.Windows.Forms.Panel();
@@ -53,12 +55,14 @@
             this.tvSelectProject.Location = new System.Drawing.Point(0, 0);
             this.tvSelectProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tvSelectProject.Name = "tvSelectProject";
-            treeNode1.Name = "nDDA";
-            treeNode1.Text = "Vẽ bằng DDA";
-            treeNode2.Name = "nLines";
-            treeNode2.Text = "Các đoạn thẳng";
+            treeNode7.Name = "nDDA";
+            treeNode7.Text = "Vẽ bằng DDA";
+            treeNode8.Name = "nBresenham";
+            treeNode8.Text = "Bresenham";
+            treeNode9.Name = "nLines";
+            treeNode9.Text = "Các đoạn thẳng";
             this.tvSelectProject.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode9});
             this.tvSelectProject.Size = new System.Drawing.Size(286, 700);
             this.tvSelectProject.TabIndex = 0;
             this.tvSelectProject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvSelectProject_NodeMouseClick);

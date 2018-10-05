@@ -22,7 +22,16 @@ namespace TongHop
         {
             if(e.Node.Name.Equals("nDDA"))
             {
+                pnlWindows.Controls.Clear();
                 ucDDA frm = new ucDDA();
+                frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
+                frm.Visible = true;
+                pnlWindows.Controls.Add(frm);
+            }
+            else if (e.Node.Name.Equals("nBresenham"))
+            {
+                pnlWindows.Controls.Clear();
+                ucBresenham frm = new ucBresenham();
                 frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);

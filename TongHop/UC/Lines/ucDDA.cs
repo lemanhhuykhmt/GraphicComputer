@@ -40,7 +40,7 @@ namespace TongHop.UC.Lines
                 {
                     iy = (int)(y + 0.5);
                     //putPixel(x, iy);
-                    bm.SetPixel(x, pbDraw.Height - iy, Color.Red);
+                    bm.SetPixel(x, pbDraw.Height - 1 - iy, Color.Red);
                     y += m;
                 }
             }
