@@ -25,12 +25,24 @@ namespace TongHop.UC.Lines
             int y2 = Convert.ToInt32(txtY2.Text);
             Bitmap bm = new Bitmap(this.pbDraw.Size.Width, this.pbDraw.Size.Height);
 
-            BresenhamY(x1, y1, x2, y2, bm);
-           // Bresenham(100, 100, 40, 350, bm);
+            double m = -3;
+            if (x2 != x1)
+            {
+                m = (y2 - y1) / (x2 - x1 * 1.0);
+            }
+            MessageBox.Show("" + m);
+            if (m > 1 || m < -1)
+            {
+                BresenhamY(x1, y1, x2, y2, bm);
+            }
+            else
+            {
+                BresenhamX(x1, y1, x2, y2, bm);
+            }
 
             pbDraw.Image = bm;
         }
-        private void Bresenham(int x1, int y1, int x2, int y2, Bitmap bm)
+        private void BresenhamX(int x1, int y1, int x2, int y2, Bitmap bm)
         {
             int dx = Math.Abs(x2 - x1);
             int dy = Math.Abs(y2 - y1);
@@ -75,7 +87,7 @@ namespace TongHop.UC.Lines
             }
         }
         private void BresenhamY(int x1, int y1, int x2, int y2, Bitmap bm)
-        {
+        { 
             int dx = Math.Abs(x2 - x1);
             int dy = Math.Abs(y2 - y1);
             int h = 2 * dx;
@@ -100,14 +112,32 @@ namespace TongHop.UC.Lines
                 yend = y2;
             }
             int deltaX = -1;
-            if (y < yend)
+            if (x < xend)
             {
                 deltaX = 1;
             }
+            int a = 3;
+            int alpha = 255;        
+            int y0 = y;
             for (; y < yend; y++)
             {
-                bm.SetPixel(x, pbDraw.Height - 1 - y, Color.Red);
-                if (d < 0)
+
+                if (a > 0)
+                {
+                    double doMo = (yend - y) / (yend - y0 * 1.0); 
+                    if (y1 == yend)
+                    {
+                        doMo = 1 - (yend - y) / (yend - y0 * 1.0);
+                    }
+                    bm.SetPixel(x, pbDraw.Height - 1 - y, Color.FromArgb((int)(alpha * doMo), Color.Red));
+                    
+                    //a--;
+                }
+                else
+                {
+                    a = 3;
+                }
+                if (d < 0) 
                 {
                     d += h;
                 }
@@ -117,6 +147,28 @@ namespace TongHop.UC.Lines
                     x += deltaX;
                 }
             }
+        }
+        private void BresenhamBold(int x1, int y1, int x2, int y2, Bitmap bm)
+        {
+            double m = -3;
+            if(x2 != x1)
+            {
+                m = (y2 - y1) / (x2 - x1 * 1.0);
+            }
+            MessageBox.Show("" + m);
+            if (m > 1 || m < -1)
+            {
+                BresenhamY(x1, y1, x2, y2, bm);
+                BresenhamY(x1 + 1, y1, x2 + 1, y2, bm);
+                BresenhamY(x1 - 1, y1, x2 - 1, y2, bm);
+            }
+            else
+            {
+                BresenhamX(x1, y1, x2, y2, bm);
+                BresenhamX(x1, y1 + 1, x2, y2 + 1, bm);
+                BresenhamX(x1, y1 - 1, x2, y2 - 1, bm);
+            }
+
         }
     }
 }

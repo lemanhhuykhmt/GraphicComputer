@@ -36,6 +36,14 @@ namespace TongHop
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
             }
+            else if(e.Node.Name.Equals("nLines"))
+            {
+                pnlWindows.Controls.Clear();
+                ucLines frm = new ucLines();
+                frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
+                frm.Visible = true;
+                pnlWindows.Controls.Add(frm);
+            }
         }
     }
 }
