@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Vẽ bằng DDA");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Bresenham");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Các đoạn thẳng", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Lines");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Lines");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Circle");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CircleMove");
             this.panel1 = new System.Windows.Forms.Panel();
             this.tvSelectProject = new System.Windows.Forms.TreeView();
             this.pnlWindows = new System.Windows.Forms.Panel();
@@ -56,17 +53,16 @@
             this.tvSelectProject.Location = new System.Drawing.Point(0, 0);
             this.tvSelectProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tvSelectProject.Name = "tvSelectProject";
-            treeNode1.Name = "nDDA";
-            treeNode1.Text = "Vẽ bằng DDA";
-            treeNode2.Name = "nBresenham";
-            treeNode2.Text = "Bresenham";
-            treeNode3.Name = "nLine";
-            treeNode3.Text = "Các đoạn thẳng";
-            treeNode4.Name = "nLines";
-            treeNode4.Text = "Lines";
+            treeNode1.Name = "nLines";
+            treeNode1.Text = "Lines";
+            treeNode2.Name = "nCircle";
+            treeNode2.Text = "Circle";
+            treeNode3.Name = "nCircleMove";
+            treeNode3.Text = "CircleMove";
             this.tvSelectProject.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode1,
+            treeNode2,
+            treeNode3});
             this.tvSelectProject.Size = new System.Drawing.Size(286, 700);
             this.tvSelectProject.TabIndex = 0;
             this.tvSelectProject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvSelectProject_NodeMouseClick);
@@ -90,6 +86,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

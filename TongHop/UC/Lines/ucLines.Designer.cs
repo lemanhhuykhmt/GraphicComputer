@@ -83,6 +83,7 @@
             // 
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel5);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(27, 16);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -120,7 +121,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "X1:";
+            this.label1.Text = "Y1:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -161,8 +162,9 @@
             this.btnDraw.Name = "btnDraw";
             this.btnDraw.Size = new System.Drawing.Size(103, 39);
             this.btnDraw.TabIndex = 4;
-            this.btnDraw.Text = "Vẽ";
+            this.btnDraw.Text = "Clear";
             this.btnDraw.UseVisualStyleBackColor = true;
+            this.btnDraw.Click += new System.EventHandler(this.btnDraw_Click);
             // 
             // panel2
             // 
@@ -277,6 +279,7 @@
             // 
             this.groupBox2.Controls.Add(this.panel4);
             this.groupBox2.Controls.Add(this.panel6);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(214, 16);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -284,7 +287,7 @@
             this.groupBox2.Size = new System.Drawing.Size(179, 100);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Điểm bắt đầu";
+            this.groupBox2.Text = "Điểm kết thúc";
             // 
             // panel4
             // 
@@ -314,7 +317,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 23);
             this.label2.TabIndex = 0;
-            this.label2.Text = "X1:";
+            this.label2.Text = "Y2:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
@@ -345,7 +348,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 23);
             this.label4.TabIndex = 0;
-            this.label4.Text = "X1:";
+            this.label4.Text = "X2:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucLines

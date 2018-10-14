@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TongHop.UC.Lines;
 
 namespace TongHop
 {
@@ -20,26 +19,26 @@ namespace TongHop
 
         private void tvSelectProject_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if(e.Node.Name.Equals("nDDA"))
+            if(e.Node.Name.Equals("nLines"))
             {
                 pnlWindows.Controls.Clear();
-                ucDDA frm = new ucDDA();
+                UC.Lines.ucLines frm = new UC.Lines.ucLines();
                 frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
             }
-            else if (e.Node.Name.Equals("nBresenham"))
+            else if (e.Node.Name.Equals("nCircle"))
             {
                 pnlWindows.Controls.Clear();
-                ucBresenham frm = new ucBresenham();
+                UC.Circle.ucCircle frm = new UC.Circle.ucCircle();
                 frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
             }
-            else if(e.Node.Name.Equals("nLines"))
+            else if (e.Node.Name.Equals("nCircleMove"))
             {
                 pnlWindows.Controls.Clear();
-                ucLines frm = new ucLines();
+                UC.CircleMove.CircleMove frm = new UC.CircleMove.CircleMove();
                 frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
