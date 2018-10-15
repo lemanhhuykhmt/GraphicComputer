@@ -41,7 +41,7 @@ namespace TongHop.Model
             for (x = 0; x <= r * Math.Cos(45 * Math.PI / 180.0); x++)
             {
                 y_real = Math.Sqrt(1.0 * r * r - x * x);
-                y = (int)(y_real + 0.5);
+                y = DEFINE.Round(y_real);
                 SetPixel(x + xI, y + yI, color, ref bm);
                 SetPixel(y + xI, x + yI, color, ref bm);
                 SetPixel(y + xI, -x + yI, color, ref bm);
@@ -55,14 +55,14 @@ namespace TongHop.Model
         private static void ToaDoCuc(int xI, int yI, int r, Color color, ref Bitmap bm)
         {
             double scale = r / 60.0;
-            int alpha0 = (int)(90 * scale + 0.5);
-            int alphaEnd = (int)Math.Round(45 * scale + 0.5);
+            int alpha0 = DEFINE.Round(90 * scale);
+            int alphaEnd = DEFINE.Round(45 * scale);
             int x, y;
             for (; alpha0 >= alphaEnd; alpha0--)
             {
 
-                x = (int)(r * Math.Cos(alpha0 * Math.PI / 180 / scale) + 0.5);
-                y = (int)(r * Math.Sin(alpha0 * Math.PI / 180 / scale) + 0.5);
+                x = DEFINE.Round(r * Math.Cos(alpha0 * Math.PI / 180 / scale));
+                y = DEFINE.Round(r * Math.Sin(alpha0 * Math.PI / 180 / scale));
                 SetPixel(x + xI, y + yI, color, ref bm);
                 SetPixel(y + xI, x + yI, color, ref bm);
                 SetPixel(y + xI, -x + yI, color, ref bm);
@@ -104,7 +104,7 @@ namespace TongHop.Model
         {
             int x = 0;
             int y = b;
-            int d = (int)(b * b - a * a * b + a * a * 0.25 + 0.5);
+            int d = DEFINE.Round(b * b - a * a * b + a * a * 0.25);
 
             for (; (2 * b * b * x) < (2 * a * a * y); x++) // y
             {
@@ -122,7 +122,7 @@ namespace TongHop.Model
                     y--;
                 }
             }
-            d = (int)(b * b * (x + 0.5) * (x + 0.5) + a * a * (y - 1) * (y - 1) - a * a * b * b + 0.5);
+            d = DEFINE.Round(b * b * (x + 0.5) * (x + 0.5) + a * a * (y - 1) * (y - 1) - a * a * b * b);
             for (; y >= 0; y--)
             {
                 SetPixel(x + xI, y + yI, color, ref bm);

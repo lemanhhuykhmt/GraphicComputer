@@ -18,8 +18,8 @@ namespace TongHop
         }
         public static void Rotate(ref int x, ref int y, int xr, int yr, double angle)
         {
-            int x1 = (int)(xr + (x - xr) * Math.Cos(angle) - (y - yr) * Math.Sin(angle));
-            int y1 = (int)(yr + (x - xr) * Math.Sin(angle) + (y - yr) * Math.Cos(angle));
+            int x1 = DEFINE.Round(xr + (x - xr) * Math.Cos(angle) - (y - yr) * Math.Sin(angle));
+            int y1 = DEFINE.Round(yr + (x - xr) * Math.Sin(angle) + (y - yr) * Math.Cos(angle));
             x = x1;
             y = y1;
         }
@@ -32,8 +32,11 @@ namespace TongHop
             var propY = (PropertyInfo)exprY.Member;
             int X = Convert.ToInt32(propX.GetValue(target));
             int Y = Convert.ToInt32(propY.GetValue(target));
-            int x1 = (int)(xr + (X - xr) * Math.Cos(angle) - (Y - yr) * Math.Sin(angle));
-            int y1 = (int)(yr + (X - xr) * Math.Sin(angle) + (Y - yr) * Math.Cos(angle));
+            int x1 = DEFINE.Round(xr + (X - xr) * Math.Cos(angle) - (Y - yr) * Math.Sin(angle));
+            int y1 = DEFINE.Round(yr + (X - xr) * Math.Sin(angle) + (Y - yr) * Math.Cos(angle));
+
+            //int x1 = (int)(xr + (X - xr) * Math.Cos(angle) - (Y - yr) * Math.Sin(angle));
+            //int y1 = (int)(yr + (X - xr) * Math.Sin(angle) + (Y - yr) * Math.Cos(angle));
             propX.SetValue(t, x1);
             propY.SetValue(t, y1);
             target = (T)t;

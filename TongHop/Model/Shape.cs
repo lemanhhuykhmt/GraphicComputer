@@ -63,7 +63,7 @@ namespace TongHop.Model
             int y = position.Y;
             Erase();
             // các tính toán bên trong đối tượng (vd: cập nhật vị trí)
-            Transform.Translate(ref x, ref y,(int) (deltaTime * velocity.X + 0.5), (int)(deltaTime * velocity.Y + 0.5));
+            Transform.Translate(ref x, ref y, DEFINE.Round(deltaTime * velocity.X), DEFINE.Round(deltaTime * velocity.Y));
             DEFINE.ECollideOutSide eCollide = isCollideOutSide();
             if (eCollide == DEFINE.ECollideOutSide.Left || eCollide == DEFINE.ECollideOutSide.Right)
             {
@@ -80,7 +80,7 @@ namespace TongHop.Model
         }
         public virtual void Rotate(Point I, double angle)
         {
-            //Erase();
+            Erase();
             Transform.Rotate<Point>(ref position, x => x.X, x => x.Y, I.X, I.Y, angle);
             Draw();
         }

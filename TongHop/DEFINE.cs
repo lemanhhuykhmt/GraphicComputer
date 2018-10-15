@@ -49,5 +49,10 @@ namespace TongHop
             CircleTranslate,
             CircleRotate
         }
+
+        public static int Round(double a)
+        {
+            return (int)(a + 0.5);
+        }
     }
 }

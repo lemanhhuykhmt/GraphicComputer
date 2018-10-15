@@ -62,7 +62,7 @@ namespace TongHop.Model
                 int iy;
                 for (int x = x1; x <= x2; x++)
                 {
-                    iy = (int)(y + 0.5);
+                    iy = DEFINE.Round(y);
                     //putPixel(x, iy);
                     SetPixel(x, iy, color, ref bm);
                     y += m;
@@ -75,7 +75,7 @@ namespace TongHop.Model
                 int ix;
                 for (int y = y1; y <= y2; y++)
                 {
-                    ix = (int)(x + 0.5);
+                    ix = DEFINE.Round(x);
                     //putPixel(x, iy);
                     SetPixel(ix, y, color, ref bm);
                     x += (1 * infinity / m);
@@ -88,7 +88,7 @@ namespace TongHop.Model
                 int iy;
                 for (int x = x1; x >= x2; x--)
                 {
-                    iy = (int)(y + 0.5);
+                    iy = DEFINE.Round(y);
                     //putPixel(x, iy);
                     SetPixel(x, iy, color, ref bm);
                     y -= m;
@@ -101,7 +101,7 @@ namespace TongHop.Model
                 int ix;
                 for (int y = y1; y >= y2; y--)
                 {
-                    ix = (int)(x + 0.5);
+                    ix = DEFINE.Round(x);
                     SetPixel(ix, y, color, ref bm);
                     x -= (1 * infinity / m);
                 }
@@ -492,7 +492,7 @@ namespace TongHop.Model
                 {
                     doMo = 1 - (xend - x) / (xend - x0 * 1.0);
                 }
-                SetPixel(x, y, Color.FromArgb((int)(alpha * doMo), color), ref bm);
+                SetPixel(x, y, Color.FromArgb(DEFINE.Round(alpha * doMo), color), ref bm);
                 if (d < 0)
                 {
                     d += h;
@@ -543,7 +543,7 @@ namespace TongHop.Model
                 {
                     doMo = 1 - (yend - y) / (yend - y0 * 1.0);
                 }
-                SetPixel(x, y, Color.FromArgb((int)(alpha * doMo), color),ref bm);
+                SetPixel(x, y, Color.FromArgb(DEFINE.Round(alpha * doMo), color),ref bm);
                 if (d < 0)
                 {
                     d += h;
