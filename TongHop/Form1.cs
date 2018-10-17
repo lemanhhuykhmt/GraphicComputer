@@ -43,6 +43,14 @@ namespace TongHop
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
             }
+            else if (e.Node.Name.Equals("nato"))
+            {
+                pnlWindows.Controls.Clear();
+                UC.Rectangle.ucRectangleMove frm = new UC.Rectangle.ucRectangleMove();
+                frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
+                frm.Visible = true;
+                pnlWindows.Controls.Add(frm);
+            }
         }
     }
 }

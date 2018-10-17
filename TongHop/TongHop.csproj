@@ -56,6 +56,8 @@
     <Compile Include="Model\DrawCircles.cs" />
     <Compile Include="Model\DrawLines.cs" />
     <Compile Include="Model\Line.cs" />
+    <Compile Include="Model\Oxy.cs" />
+    <Compile Include="Model\Rectangle.cs" />
     <Compile Include="Model\Shape.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +80,12 @@
     <Compile Include="UC\Lines\ucLines.Designer.cs">
       <DependentUpon>ucLines.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\Rectangle\ucRectangleMove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\Rectangle\ucRectangleMove.Designer.cs">
+      <DependentUpon>ucRectangleMove.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\Lines\ucLines.resx">
       <DependentUpon>ucLines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\Rectangle\ucRectangleMove.resx">
+      <DependentUpon>ucRectangleMove.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

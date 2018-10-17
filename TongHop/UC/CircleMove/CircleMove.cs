@@ -17,6 +17,7 @@ namespace TongHop.UC.CircleMove
         Model.Circle c;
         Point pI = new Point(300, 300);
         int speedRotate;
+        int speedMoveBase = 100;
         Bitmap bm;
         DEFINE.EChooseCircleMove EChoose = DEFINE.EChooseCircleMove.CircleTranslate;
         DEFINE.EAnimation animation = DEFINE.EAnimation.Start;
@@ -25,11 +26,11 @@ namespace TongHop.UC.CircleMove
         {
             InitializeComponent();
             bm = new Bitmap(pbDraw.Width, pbDraw.Height);
-            speedRotate = tbVelocity.Value;
+            speedRotate = tbSpeed.Value;
             c = new Model.Circle(ref bm) {
                 Color = Color.Red,
                 Radius = 50,
-                Velocity = new Point(tbVelocity.Value, tbVelocity.Value),
+                Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
                 Position = new Point(200, 200)
             };
             l = new Model.Line(ref bm)
@@ -37,13 +38,13 @@ namespace TongHop.UC.CircleMove
                 Color = Color.Red,
                 PHead = new Point(pI.X, pI.Y),
                 PEnd = new Point(200, 200),
-                Velocity = new Point(tbVelocity.Value, tbVelocity.Value),
+                Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
             };
             trajector = new Model.Circle(ref bm)
             {
                 Color = Color.WhiteSmoke,
                 Radius = l.Length(),
-                Velocity = new Point(tbVelocity.Value, tbVelocity.Value),
+                Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
                 Position = new Point(pI.X, pI.Y)
             };
         }
@@ -78,7 +79,28 @@ namespace TongHop.UC.CircleMove
 
         private void btnTranslate_Click(object sender, EventArgs e)
         {
+            lbMax.Text = "5";
+            tbSpeed.Maximum = 5;
+            tbSpeed.Value = 1;
+            c.Erase();
+            l.Erase();
+            trajector.Erase();
             EChoose = DEFINE.EChooseCircleMove.CircleTranslate;
+            c.Draw();
+            pbDraw.Image = bm;
+        }
+        private void btnRotate_Click(object sender, EventArgs e)
+        {
+            lbMax.Text = "500";
+            tbSpeed.Maximum = 500;
+            tbSpeed.Value = 100;
+            c.Erase();
+            l.Erase();
+            EChoose = DEFINE.EChooseCircleMove.CircleRotate;
+            c.Draw();
+            l.Draw();
+            trajector.Draw();
+            pbDraw.Image = bm;
         }
 
         private void btnClearOrStop_Click(object sender, EventArgs e)
@@ -94,7 +116,7 @@ namespace TongHop.UC.CircleMove
                     {
                         Color = Color.Red,
                         Radius = 50,
-                        Velocity = new Point(tbVelocity.Value, tbVelocity.Value),
+                        Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
                         Position = new Point(200, 200)
                     };
                 }
@@ -110,7 +132,7 @@ namespace TongHop.UC.CircleMove
                     {
                         Color = Color.Red,
                         Radius = 50,
-                        Velocity = new Point(tbVelocity.Value, tbVelocity.Value),
+                        Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
                         Position = new Point(200, 200)
                     };
                     l = new Model.Line(ref bm)
@@ -118,7 +140,7 @@ namespace TongHop.UC.CircleMove
                         Color = Color.Red,
                         PHead = new Point(pI.X, pI.Y),
                         PEnd = new Point(200, 200),
-                        Velocity = new Point(tbVelocity.Value, tbVelocity.Value),
+                        Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
                     };
                 }
                 animation = DEFINE.EAnimation.Start;
@@ -128,6 +150,17 @@ namespace TongHop.UC.CircleMove
                 btnStartOrPause.Enabled = true;
                 btnRotate.Enabled = true;
                 btnTranslate.Enabled = true;
+                if (EChoose == DEFINE.EChooseCircleMove.CircleTranslate)
+                {
+                    c.Draw();
+                }
+                if (EChoose == DEFINE.EChooseCircleMove.CircleRotate)
+                {
+                    c.Draw();
+                    l.Draw();
+                    trajector.Draw();
+                }
+                pbDraw.Image = bm;
             }
             if(animation == DEFINE.EAnimation.Running || animation == DEFINE.EAnimation.Pause)
             {
@@ -140,17 +173,7 @@ namespace TongHop.UC.CircleMove
         private void btnStartOrPause_Click(object sender, EventArgs e)
         {
             if (animation == DEFINE.EAnimation.Start)
-            {
-                if (EChoose == DEFINE.EChooseCircleMove.CircleTranslate)
-                {
-                    c.Draw();
-                }
-                if(EChoose == DEFINE.EChooseCircleMove.CircleRotate)
-                {
-                    c.Draw();
-                    l.Draw();
-                }
-                pbDraw.Image = bm;
+            {               
                 timer1.Interval = 30;
                 animation = DEFINE.EAnimation.Running;
                 timer1.Start();                
@@ -182,21 +205,18 @@ namespace TongHop.UC.CircleMove
             }
         }
 
-        private void tbVelocity_Scroll(object sender, EventArgs e)
+        private void tbSpeed_Scroll(object sender, EventArgs e)
         {
             if (EChoose == DEFINE.EChooseCircleMove.CircleTranslate)
             {
-                c.ChangeVelocity(new Point(tbVelocity.Value, tbVelocity.Value));
+                c.MultiVel(tbSpeed.Value, speedMoveBase);
             }
-            else if(EChoose == DEFINE.EChooseCircleMove.CircleRotate)
+            else if (EChoose == DEFINE.EChooseCircleMove.CircleRotate)
             {
-                speedRotate = tbVelocity.Value;
+                speedRotate = tbSpeed.Value;
             }
         }
 
-        private void btnRotate_Click(object sender, EventArgs e)
-        {
-            EChoose = DEFINE.EChooseCircleMove.CircleRotate;
-        }
+
     }
 }

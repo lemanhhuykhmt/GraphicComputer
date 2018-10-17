@@ -9,14 +9,14 @@ namespace TongHop.Model
 {
     abstract class Shape
     {
-        private Point position;
+        protected Point position;
         private Color color;
         private Point velocity;
         private Bitmap bm;
         public Point Velocity { get => velocity; set => velocity = value; }
         public Color Color { get => color; set => color = value; }
-        public Point Position { get =>position; set => position = value; }
-        public ref Bitmap Bm { get =>ref bm;}
+        public Point Position { get => position; set => position = value; }
+        public ref Bitmap Bm { get => ref bm; }
 
         private Shape()
         {
@@ -36,27 +36,6 @@ namespace TongHop.Model
             this.Bm = bm;
         }
 
-        public void ChangeVelocity(Point vel)
-        {
-            if(velocity.X != 0)
-            {
-                oldVelocity.X = velocity.X;
-                velocity.X = vel.X * velocity.X / Math.Abs(velocity.X);
-            }
-            else
-            {
-                velocity.X = vel.X * oldVelocity.X / Math.Abs(oldVelocity.X);
-            }
-            if(velocity.Y != 0)
-            {
-                oldVelocity.Y = velocity.Y;
-                velocity.Y = vel.Y * velocity.Y / Math.Abs(velocity.Y);
-            }
-            else
-            {
-                velocity.Y = vel.Y * oldVelocity.Y / Math.Abs(oldVelocity.Y);
-            }
-        }
         public void Translate(double deltaTime)
         {
             int x = position.X;
@@ -81,7 +60,7 @@ namespace TongHop.Model
         public virtual void Rotate(Point I, double angle)
         {
             Erase();
-            Transform.Rotate<Point>(ref position, x => x.X, x => x.Y, I.X, I.Y, angle);
+            Transform.Rotate<Point>(ref position, x => x.X, x => x.Y, I.X, I.Y, -angle);
             Draw();
         }
         public abstract void Draw();
@@ -104,10 +83,26 @@ namespace TongHop.Model
                 return DEFINE.ECollideOutSide.Top;
             return DEFINE.ECollideOutSide.None;
         }
+        public void MultiVel(int n, int speedbase) //Vel * n
+        {
+            Point newVel = new Point();
+            double sizeVel = Math.Sqrt(Velocity.X * Velocity.X + Velocity.Y * Velocity.Y);
+            int nOld = DEFINE.Round(sizeVel / speedbase);
+            if (nOld == 0)
+            {
+                newVel = new Point(n * oldVelocity.X, n * oldVelocity.Y);
+            }
+            else
+            {
+                oldVelocity = velocity;
+                newVel = new Point(DEFINE.Round(n * (Velocity.X / nOld)),
+                        DEFINE.Round(n * (Velocity.Y / nOld)));
+            }
+            Velocity = newVel;
+        }
 
 
 
-
-        private Point oldVelocity; // van toc truoc khi = 0
+        private Point oldVelocity = new Point(1, 1); // van toc truoc khi = 0
     }
 }

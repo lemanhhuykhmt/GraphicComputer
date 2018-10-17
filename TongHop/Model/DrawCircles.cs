@@ -38,7 +38,7 @@ namespace TongHop.Model
             double y_real;
             int x;
             int y;
-            for (x = 0; x <= r * Math.Cos(45 * Math.PI / 180.0); x++)
+            for (x = 0; x <= r * Math.Cos(45 * Math.PI / 180.0) + 0.5; x++)
             {
                 y_real = Math.Sqrt(1.0 * r * r - x * x);
                 y = DEFINE.Round(y_real);

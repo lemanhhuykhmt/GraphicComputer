@@ -47,8 +47,8 @@ namespace TongHop.Model
         {
             base.Rotate(I, angle);
             this.Erase();
-            Transform.Rotate<Point>(ref pHead, x => x.X, x => x.Y, I.X, I.Y, angle);
-            Transform.Rotate<Point>(ref pEnd, x => x.X, x => x.Y, I.X, I.Y, angle);
+            Transform.Rotate<Point>(ref pHead, x => x.X, x => x.Y, I.X, I.Y, -angle);
+            Transform.Rotate<Point>(ref pEnd, x => x.X, x => x.Y, I.X, I.Y, -angle);
             this.Draw();
         }
 

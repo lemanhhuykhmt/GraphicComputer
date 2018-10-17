@@ -35,9 +35,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlRadius = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.tbVelocity = new System.Windows.Forms.TrackBar();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.tbSpeed = new System.Windows.Forms.TrackBar();
+            this.lbMin = new System.Windows.Forms.Label();
+            this.lbMax = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnRotate = new System.Windows.Forms.Button();
             this.btnClearOrStop = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             this.panel3.SuspendLayout();
             this.pnlRadius.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbVelocity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,48 +108,48 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.tbVelocity);
-            this.panel9.Controls.Add(this.label7);
-            this.panel9.Controls.Add(this.label6);
+            this.panel9.Controls.Add(this.tbSpeed);
+            this.panel9.Controls.Add(this.lbMin);
+            this.panel9.Controls.Add(this.lbMax);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 40);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(65, 344);
             this.panel9.TabIndex = 1;
             // 
-            // tbVelocity
+            // tbSpeed
             // 
-            this.tbVelocity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbVelocity.Location = new System.Drawing.Point(0, 27);
-            this.tbVelocity.Maximum = 500;
-            this.tbVelocity.Name = "tbVelocity";
-            this.tbVelocity.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tbVelocity.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbVelocity.Size = new System.Drawing.Size(65, 272);
-            this.tbVelocity.SmallChange = 10;
-            this.tbVelocity.TabIndex = 2;
-            this.tbVelocity.Value = 100;
-            this.tbVelocity.Scroll += new System.EventHandler(this.tbVelocity_Scroll);
+            this.tbSpeed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSpeed.Location = new System.Drawing.Point(0, 27);
+            this.tbSpeed.Maximum = 500;
+            this.tbSpeed.Name = "tbSpeed";
+            this.tbSpeed.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tbSpeed.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbSpeed.Size = new System.Drawing.Size(65, 272);
+            this.tbSpeed.SmallChange = 10;
+            this.tbSpeed.TabIndex = 2;
+            this.tbSpeed.Value = 100;
+            this.tbSpeed.Scroll += new System.EventHandler(this.tbSpeed_Scroll);
             // 
-            // label7
+            // lbMin
             // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Location = new System.Drawing.Point(0, 299);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 45);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "0";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbMin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbMin.Location = new System.Drawing.Point(0, 299);
+            this.lbMin.Name = "lbMin";
+            this.lbMin.Size = new System.Drawing.Size(65, 45);
+            this.lbMin.TabIndex = 1;
+            this.lbMin.Text = "0";
+            this.lbMin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // lbMax
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 27);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "500";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbMax.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbMax.Location = new System.Drawing.Point(0, 0);
+            this.lbMax.Name = "lbMax";
+            this.lbMax.Size = new System.Drawing.Size(65, 27);
+            this.lbMax.TabIndex = 0;
+            this.lbMax.Text = "500";
+            this.lbMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -158,7 +158,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 40);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Velocity";
+            this.label5.Text = "Speed";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRotate
@@ -219,7 +219,7 @@
             this.pnlRadius.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbVelocity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpeed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,9 +235,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlRadius;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TrackBar tbVelocity;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TrackBar tbSpeed;
+        private System.Windows.Forms.Label lbMin;
+        private System.Windows.Forms.Label lbMax;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnClearOrStop;
         private System.Windows.Forms.Button btnStartOrPause;

@@ -31,6 +31,7 @@
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Lines");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Circle");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CircleMove");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node0");
             this.panel1 = new System.Windows.Forms.Panel();
             this.tvSelectProject = new System.Windows.Forms.TreeView();
             this.pnlWindows = new System.Windows.Forms.Panel();
@@ -59,10 +60,13 @@
             treeNode2.Text = "Circle";
             treeNode3.Name = "nCircleMove";
             treeNode3.Text = "CircleMove";
+            treeNode4.Name = "nato";
+            treeNode4.Text = "Node0";
             this.tvSelectProject.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3});
+            treeNode3,
+            treeNode4});
             this.tvSelectProject.Size = new System.Drawing.Size(286, 700);
             this.tvSelectProject.TabIndex = 0;
             this.tvSelectProject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvSelectProject_NodeMouseClick);
