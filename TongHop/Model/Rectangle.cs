@@ -20,7 +20,7 @@ namespace TongHop.Model
         private Point B;
         private Point C;
         private Point D;
-        private void getABCD()
+        private void getABCD() // tính toán toạ độ abcd
         {
             double alpha = DEFINE.DirToRad(direction);
 
@@ -47,7 +47,7 @@ namespace TongHop.Model
 
         public override void Draw()
         {
-            // toạ độ pbdraw nên
+            // đổi y vì toạ độ 0y >< 0xy
             int yDir = direction.Y;
             direction = new Point(direction.X, -direction.Y);
             getABCD();

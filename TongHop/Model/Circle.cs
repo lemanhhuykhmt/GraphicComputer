@@ -28,7 +28,7 @@ namespace TongHop.Model
         public override void Draw()
         {
             DrawCircles.DrawCircle(Position.X, Position.Y, radius, radius, Color, ref Bm, DEFINE.EChooseCircle.ToaDoCuc);
-            Bm.SetPixel(Position.X, Position.Y, Color);
+            //Bm.SetPixel(Position.X, Position.Y, Color);
         }
         public override DEFINE.ECollideOutSide isCollideOutSide()
         {

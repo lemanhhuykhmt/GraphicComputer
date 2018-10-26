@@ -43,7 +43,7 @@ namespace TongHop.UC.CircleMove
             trajector = new Model.Circle(ref bm)
             {
                 Color = Color.WhiteSmoke,
-                Radius = l.Length(),
+                Radius = l.Length,
                 Velocity = new Point(tbSpeed.Value, tbSpeed.Value),
                 Position = new Point(pI.X, pI.Y)
             };

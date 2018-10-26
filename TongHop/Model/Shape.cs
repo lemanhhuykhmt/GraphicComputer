@@ -9,10 +9,10 @@ namespace TongHop.Model
 {
     abstract class Shape
     {
-        protected Point position;
-        private Color color;
-        private Point velocity;
-        private Bitmap bm;
+        protected Point position; // vị trí của hình
+        private Color color; // màu 
+        private Point velocity; // vận tốc
+        private Bitmap bm; // đệm vẽ
         public Point Velocity { get => velocity; set => velocity = value; }
         public Color Color { get => color; set => color = value; }
         public Point Position { get => position; set => position = value; }
@@ -36,13 +36,17 @@ namespace TongHop.Model
             this.Bm = bm;
         }
 
-        public void Translate(double deltaTime)
+        public virtual void Translate(double deltaTime) // tịnh tiến
         {
-            int x = position.X;
+            // lấy vị trí hiện tại
+            int x = position.X; 
             int y = position.Y;
+            // xoá hình cũ
             Erase();
-            // các tính toán bên trong đối tượng (vd: cập nhật vị trí)
+            // tịnh tiến vị trí hiệnt tại
             Transform.Translate(ref x, ref y, DEFINE.Round(deltaTime * velocity.X), DEFINE.Round(deltaTime * velocity.Y));
+            
+            // kiểm tra va chạm biên
             DEFINE.ECollideOutSide eCollide = isCollideOutSide();
             if (eCollide == DEFINE.ECollideOutSide.Left || eCollide == DEFINE.ECollideOutSide.Right)
             {
@@ -52,26 +56,28 @@ namespace TongHop.Model
             {
                 velocity.Y *= -1;
             }
-
+            // cập nhật giá trị mới
             position.X = x;
             position.Y = y;
+            // vẽ mới
             Draw();
+
         }
-        public virtual void Rotate(Point I, double angle)
+        public virtual void Rotate(Point I, double angle) // quay hình với tâm và góc
         {
-            Erase();
-            Transform.Rotate<Point>(ref position, x => x.X, x => x.Y, I.X, I.Y, -angle);
-            Draw();
+            Erase(); // xoá hình cũ
+            Transform.Rotate<Point>(ref position, x => x.X, x => x.Y, I.X, I.Y, -angle); // angle âm vì 0y bm >< 0xy
+            Draw(); // vẽ mới
         }
-        public abstract void Draw();
-        public void Erase()
+        public abstract void Draw(); // vẽ hình
+        public virtual void Erase() // xoá hình
         {
             Color mColor = color;
             color = Color.White;
             Draw();
             color = mColor;
-        }
-        public virtual DEFINE.ECollideOutSide isCollideOutSide()
+        } 
+        public virtual DEFINE.ECollideOutSide isCollideOutSide() // kiểm tra va chạm biên bảng vẽ
         {
             if (position.X > bm.Size.Width && velocity.X > 0)
                 return DEFINE.ECollideOutSide.Right;
@@ -83,14 +89,17 @@ namespace TongHop.Model
                 return DEFINE.ECollideOutSide.Top;
             return DEFINE.ECollideOutSide.None;
         }
-        public void MultiVel(int n, int speedbase) //Vel * n
+        public virtual void MultiVel(int n, int speedbase) // thay vector vận tốc với  độ lớn = n * tốc độ cơ bản. bảo toàn hướng
         {
             Point newVel = new Point();
-            double sizeVel = Math.Sqrt(Velocity.X * Velocity.X + Velocity.Y * Velocity.Y);
+            double sizeVel = Math.Sqrt(Velocity.X * Velocity.X + Velocity.Y * Velocity.Y);//độ lớn vận tốc hiện tại
             int nOld = DEFINE.Round(sizeVel / speedbase);
+            // cập nhật vận tốc mới
             if (nOld == 0)
             {
-                newVel = new Point(n * oldVelocity.X, n * oldVelocity.Y);
+                //newVel = new Point(n * oldVelocity.X, n * oldVelocity.Y);// xem lại
+                nOld = DEFINE.Round(Math.Sqrt(oldVelocity.X * oldVelocity.X + oldVelocity.Y * oldVelocity.Y) / speedbase); 
+                newVel = new Point(DEFINE.Round(n * (oldVelocity.X / nOld)),DEFINE.Round(n * (oldVelocity.Y / nOld)));
             }
             else
             {
@@ -103,6 +112,6 @@ namespace TongHop.Model
 
 
 
-        private Point oldVelocity = new Point(1, 1); // van toc truoc khi = 0
+        protected Point oldVelocity = new Point(1, 1); // van toc truoc khi = 0
     }
 }

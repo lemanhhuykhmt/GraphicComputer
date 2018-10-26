@@ -59,6 +59,7 @@
     <Compile Include="Model\Oxy.cs" />
     <Compile Include="Model\Rectangle.cs" />
     <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\Wheel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transform.cs" />
@@ -80,11 +81,23 @@
     <Compile Include="UC\Lines\ucLines.Designer.cs">
       <DependentUpon>ucLines.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\RBG\ucRBG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\RBG\ucRBG.Designer.cs">
+      <DependentUpon>ucRBG.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\Rectangle\ucRectangleMove.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC\Rectangle\ucRectangleMove.Designer.cs">
       <DependentUpon>ucRectangleMove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\Wheel\ucWheelMove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\Wheel\ucWheelMove.Designer.cs">
+      <DependentUpon>ucWheelMove.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -107,8 +120,14 @@
     <EmbeddedResource Include="UC\Lines\ucLines.resx">
       <DependentUpon>ucLines.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC\RBG\ucRBG.resx">
+      <DependentUpon>ucRBG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC\Rectangle\ucRectangleMove.resx">
       <DependentUpon>ucRectangleMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\Wheel\ucWheelMove.resx">
+      <DependentUpon>ucWheelMove.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

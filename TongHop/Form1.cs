@@ -43,10 +43,26 @@ namespace TongHop
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
             }
-            else if (e.Node.Name.Equals("nato"))
+            else if (e.Node.Name.Equals("nRectangle"))
             {
                 pnlWindows.Controls.Clear();
                 UC.Rectangle.ucRectangleMove frm = new UC.Rectangle.ucRectangleMove();
+                frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
+                frm.Visible = true;
+                pnlWindows.Controls.Add(frm);
+            }
+            else if (e.Node.Name.Equals("nWheelMove"))
+            {
+                pnlWindows.Controls.Clear();
+                UC.Wheel.ucWheelMove frm = new UC.Wheel.ucWheelMove();
+                frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
+                frm.Visible = true;
+                pnlWindows.Controls.Add(frm);
+            }
+            else if (e.Node.Name.Equals("nRGB"))
+            {
+                pnlWindows.Controls.Clear();
+                UC.RBG.ucRBG frm = new UC.RBG.ucRBG();
                 frm.Size = new Size(pnlWindows.Width, pnlWindows.Height);
                 frm.Visible = true;
                 pnlWindows.Controls.Add(frm);
